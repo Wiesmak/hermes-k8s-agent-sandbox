@@ -1,0 +1,14 @@
+{
+  "profiles": {
+    "/var/lib/hermes/profiles/alpha": {
+      "profile_id": "alpha",
+      "namespace": "hermes-pilot-alpha",
+      "warm_pool": "approved-alpha"
+    },
+    "/var/lib/hermes/profiles/beta": {
+      "profile_id": "beta",
+      "namespace": "hermes-pilot-beta",
+      "warm_pool": "approved-beta"
+    }
+  }
+}

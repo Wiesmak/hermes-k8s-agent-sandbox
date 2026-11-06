@@ -1,0 +1,5 @@
+# The functional pilot is rendered from actual workload selectors.
+# See examples/openshift/README.md and render.py. No resources are applied by this file.
+apiVersion: v1
+kind: List
+items: []

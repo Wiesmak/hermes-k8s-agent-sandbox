@@ -1,0 +1,16 @@
+{
+  "profiles": {
+    "/var/lib/hermes/profiles/smoke-alpha": {
+      "profile_id": "smoke-alpha",
+      "namespace": "hermes-pilot-test-alpha",
+      "warm_pool": "approved-alpha",
+      "router_url": "http://sandbox-router-svc.agent-sandbox-system.svc.cluster.local:8080"
+    },
+    "/var/lib/hermes/profiles/smoke-beta": {
+      "profile_id": "smoke-beta",
+      "namespace": "hermes-pilot-test-beta",
+      "warm_pool": "approved-beta",
+      "router_url": "http://sandbox-router-svc.agent-sandbox-system.svc.cluster.local:8080"
+    }
+  }
+}

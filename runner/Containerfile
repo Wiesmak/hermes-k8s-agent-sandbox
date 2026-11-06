@@ -1,0 +1,25 @@
+# Supply an approved UBI 9 minimal base by digest; no guessed immutable image tag.
+ARG RUNNER_BASE
+FROM ${RUNNER_BASE}
+USER 0
+# The supplied base must provide microdnf and the approved UBI RPM repositories.
+RUN microdnf install -y python3.11 python3.11-pip bash git nss_wrapper && microdnf clean all && \
+    test -r /usr/lib64/libnss_wrapper.so && command -v base64 head readlink id
+COPY runner/requirements.txt /opt/runtime/requirements.txt
+RUN python3.11 -m venv /opt/runtime/venv && \
+    /opt/runtime/venv/bin/pip install --no-cache-dir --require-hashes -r /opt/runtime/requirements.txt
+COPY runner/main.py /opt/runtime/main.py
+COPY runner/entrypoint.sh /opt/runtime/entrypoint.sh
+RUN mkdir -p /workspace /tmp/runtime-home && \
+    chgrp -R 0 /workspace /opt/runtime /tmp/runtime-home && \
+    chmod -R g=u /workspace /opt/runtime /tmp/runtime-home
+ENV HOME=/workspace \
+    PATH=/opt/runtime/venv/bin:$PATH \
+    SANDBOX_BASE_DIR=/workspace \
+    SANDBOX_EXEC_TIMEOUT_SECONDS=150 \
+    PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1
+WORKDIR /workspace
+USER 1001
+EXPOSE 8888
+ENTRYPOINT ["/bin/sh", "/opt/runtime/entrypoint.sh"]

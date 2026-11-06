@@ -1,0 +1,14 @@
+.git
+.idea
+.upstream
+.uv-cache
+.venv
+.test-venv
+.package-check
+.linux-venv
+.linux-requirements.txt
+__pycache__
+.pytest_cache
+.mypy_cache
+.ruff_cache
+dist

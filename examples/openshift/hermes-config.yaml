@@ -1,0 +1,8 @@
+# Merge into each profile's existing configuration; do not replace profile data.
+plugins:
+  isolation: in_process
+  enabled: [agent_sandbox]
+terminal:
+  backend: agent_sandbox
+  cwd: /workspace
+  container_persistent: true

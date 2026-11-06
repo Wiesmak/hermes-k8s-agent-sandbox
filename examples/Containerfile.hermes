@@ -1,0 +1,11 @@
+# Add these lines to the existing image build, or supply its approved base digest.
+ARG HERMES_BASE
+FROM ${HERMES_BASE}
+ARG HERMES_PYTHON=/opt/hermes/.venv/bin/python
+# wheelhouse and hashed requirements are prepared/verified by existing CI.
+COPY artifacts/wheels/ /tmp/plugin-wheels/
+COPY artifacts/requirements.lock.txt /tmp/plugin-requirements.txt
+RUN ${HERMES_PYTHON} -m pip install --no-index --find-links=/tmp/plugin-wheels \
+    --require-hashes -r /tmp/plugin-requirements.txt
+RUN ${HERMES_PYTHON} -c "from importlib.metadata import entry_points; assert any(e.name == 'agent_sandbox' for e in entry_points(group='hermes_agent.plugins'))"
+# Keep the existing gateway entry point, arbitrary UID support and security settings.

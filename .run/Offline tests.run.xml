@@ -1,0 +1,10 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Offline tests" type="tests" factoryName="py.test">
+    <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    <option name="ADD_CONTENT_ROOTS" value="true" />
+    <option name="ADD_SOURCE_ROOTS" value="true" />
+    <option name="_new_parameters" value="&quot;-q&quot;" />
+    <option name="_new_target" value="&quot;tests&quot;" />
+    <method v="2" />
+  </configuration>
+</component>

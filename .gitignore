@@ -1,0 +1,19 @@
+# Python and validation artifacts
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info/
+.venv/
+.test-venv/
+.linux-venv/
+.linux-requirements.txt
+.linux-test-results.xml
+.package-check/
+.upstream/
+.uv-cache/
+.ruff_cache/
+.mypy_cache/
+.pytest_cache/
+AGENTS.md
