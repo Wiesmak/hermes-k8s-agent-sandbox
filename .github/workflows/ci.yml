@@ -2,6 +2,8 @@ name: quality
 on: [push, pull_request]
 permissions:
   contents: read
+env:
+  UV_PYTHON: "3.11"
 jobs:
   offline:
     runs-on: ubuntu-latest
@@ -10,17 +12,17 @@ jobs:
       - uses: astral-sh/setup-uv@v6
         with:
           version: "0.11.32"
-      - run: uv sync --frozen --python 3.11 --extra dev
+      - run: uv sync --frozen --extra dev
       - uses: actions/checkout@v4
         with:
           repository: NousResearch/hermes-agent
           ref: df1774294af26285ae758c6114f3f2f60e2a602d # v0.23.0
           path: .upstream/hermes-agent-0.23.0
-      - run: uv run --frozen ruff check src tests examples/openshift/render.py
-      - run: uv run --frozen mypy --explicit-package-bases src/hermes_agent_sandbox
-      - run: uv run --frozen pytest -q
+      - run: uv run --frozen --extra dev ruff check src tests examples/openshift/render.py
+      - run: uv run --frozen --extra dev mypy --explicit-package-bases src/hermes_agent_sandbox
+      - run: uv run --frozen --extra dev pytest -q
       - run: uv build
-      - run: uv run --frozen python -c "from importlib.metadata import entry_points; assert any(e.name == 'agent_sandbox' for e in entry_points(group='hermes_agent.plugins'))"
+      - run: uv run --frozen --extra dev python -c "from importlib.metadata import entry_points; assert any(e.name == 'agent_sandbox' for e in entry_points(group='hermes_agent.plugins'))"
   runner-image:
     if: ${{ vars.RUNNER_BASE != '' }}
     runs-on: ubuntu-latest
@@ -37,6 +39,6 @@ jobs:
           repository: NousResearch/hermes-agent
           ref: df1774294af26285ae758c6114f3f2f60e2a602d
           path: .upstream/hermes-agent-0.23.0
-      - run: uv sync --frozen --python 3.11 --extra dev
+      - run: uv sync --frozen --extra dev
       - run: docker build -f runner/Containerfile --build-arg RUNNER_BASE="$RUNNER_BASE" -t "$HERMES_RUNNER_TEST_IMAGE" .
-      - run: uv run --frozen pytest -m docker -q
+      - run: uv run --frozen --extra dev pytest -m docker -q
