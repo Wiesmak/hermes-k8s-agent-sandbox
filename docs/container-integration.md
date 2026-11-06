@@ -14,7 +14,7 @@ Build a target-platform wheelhouse from that hashed export and add the release w
 with its SHA-256 to the requirements. Use examples/Containerfile.hermes as the small
 integration addition to your existing image build. It installs offline with
 --no-index/--require-hashes and checks hermes_agent.plugins entry-point metadata.
-Use the unchanged wheel basename hermes_agent_sandbox_backend-0.2.0-py3-none-any.whl.
+Use the unchanged wheel basename hermes_agent_sandbox_backend-0.2.1-py3-none-any.whl.
 
 Tekton should retrieve the immutable release wheel and lock by artifact digest, verify
 hashes/signatures, prepare the target Linux wheelhouse, and pass these into the existing

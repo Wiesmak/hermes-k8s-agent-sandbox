@@ -13,7 +13,7 @@ patches, but the pilot requires enforced network isolation.
    (microdnf repositories with Python 3.11 and nss_wrapper packages). Publish the runner image and
    record its actual digest. See runner/README.md. Validate arbitrary UID, read-only rootfs,
    workspace write permissions and readiness before using the template.
-3. Install plugin wheel 0.2.0 into the existing immutable Hermes image.
+3. Install plugin wheel 0.2.1 into the existing immutable Hermes image.
 4. Discover the existing gateway, Operator and router Deployments and DNS Service. Do
    not assume labels from an upstream manifest match the Red Hat installation.
 
