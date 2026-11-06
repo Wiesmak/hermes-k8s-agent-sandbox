@@ -32,7 +32,7 @@ AGENT_SANDBOX_TEST_CLAIM. It never creates/deletes resources.
 
 For the opt-in built-image Docker test, see docs/docker-testing.md.
 
-1. Build/publish the pinned runner image and install wheel 0.2.0 in your Hermes image.
+1. Build/publish the pinned runner image and install wheel 0.2.1 in your Hermes image.
 2. Follow docs/openshift.md to discover actual selectors/ports and render, review and
    apply the test namespaces, RBAC, templates/pools and NetworkPolicies.
 3. Mount the adapted two-profile policy read-only and enable the backend in each

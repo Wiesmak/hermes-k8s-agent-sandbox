@@ -1,6 +1,6 @@
 # hermes-agent-sandbox-backend
 
-Standalone Hermes terminal backend **agent_sandbox**, version **0.2.0**.
+Standalone Hermes terminal backend **agent_sandbox**, version **0.2.1**.
 Runs shell commands and Hermes file operations in Agent Sandbox-managed workloads
 through the **official sandbox-router-svc**. No Hermes core patch or execution fallback.
 
@@ -35,7 +35,7 @@ Build/install in the same Python environment as Hermes, during CI/image build:
 ```sh
 uv sync --frozen --extra dev
 uv build
-pip install dist/hermes_agent_sandbox_backend-0.2.0-py3-none-any.whl
+pip install dist/hermes_agent_sandbox_backend-0.2.1-py3-none-any.whl
 hermes plugins enable agent_sandbox
 ```
 

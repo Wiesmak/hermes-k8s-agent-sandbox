@@ -4,10 +4,10 @@
 
 | Component | Version / evidence | Behavior used |
 |---|---|---|
-| Hermes | v0.23.0, df1774294af26285ae758c6114f3f2f60e2a602d | Native provider/context registration, wheel entry points, BaseEnvironment |
+| Hermes | v0.23.0, 2bd378ed1b8d6bf2192cb26e0a55ff3091e6bd19 | Native provider/context registration, wheel entry points, BaseEnvironment |
 | Agent Sandbox SDK | published k8s-agent-sandbox==1.0.9 | SandboxDirectConnectionConfig, SandboxConnector, CommandExecutor.run |
 | Official workload runtime | python-runtime-sandbox/main.py at v1.0.9, b1277676f8bf0e82ea299928997ecf5d696a92f1 | HTTP /execute, timeout_seconds, stdout/stderr/exit_code/timed_out |
-| Kubernetes Python | kubernetes==34.1.0 | Namespace claim get/create and UID-preconditioned explicit cleanup |
+| Kubernetes Python | kubernetes==35.0.0 | Namespace claim get/create and UID-preconditioned explicit cleanup |
 | Red Hat distribution | OpenShift Sandboxed Containers 1.13, Technology Preview | Documented v1beta1 Sandbox and extension CRDs; official HTTP router |
 | Runner API dependencies | FastAPI 0.121.0, Uvicorn 0.38.0, python-multipart 0.0.20 | Hashed runner/requirements.txt; upstream source retained |
 
